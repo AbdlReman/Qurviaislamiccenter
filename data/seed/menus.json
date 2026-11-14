@@ -1,0 +1,121 @@
+[
+  {
+    "key": "main",
+    "name": "Main Navigation",
+    "location": "header",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About us",
+        "href": "/about-us"
+      },
+      {
+        "label": "Quran Courses",
+        "href": null,
+        "children": [
+          {
+            "label": "Learn Quran With Tajweed",
+            "href": "/quran-courses/learn-quran-with-tajweed-online"
+          },
+          {
+            "label": "Learn Quran Tafseer",
+            "href": "/quran-courses/learn-quran-tafseer-online"
+          },
+          {
+            "label": "Hifz Quran",
+            "href": "/quran-courses/hifz-quran-online-quran-memorization"
+          },
+          {
+            "label": "Basic Islamic Education",
+            "href": "/quran-courses/basic-islamic-education-for-kids-daily-duas"
+          },
+          {
+            "label": "Arabic Language Course",
+            "href": "/quran-courses/arabic-language-course"
+          },
+          {
+            "label": "Noorani Qaida",
+            "href": "/quran-courses/noorani-qaida-online"
+          }
+        ]
+      },
+      {
+        "label": "Blogs",
+        "href": "/blog"
+      },
+      {
+        "label": "Academic Tuition",
+        "href": "/academic-tuition"
+      },
+      {
+        "label": "Contact us",
+        "href": "/contact-us"
+      }
+    ]
+  },
+  {
+    "key": "footer-courses",
+    "name": "Footer Courses",
+    "location": "footer",
+    "items": [
+      {
+        "label": "Noorani qaida",
+        "href": "/quran-courses/noorani-qaida-online"
+      },
+      {
+        "label": "Quran with tajweed",
+        "href": "/quran-courses/learn-quran-with-tajweed-online"
+      },
+      {
+        "label": "Quran with tafseer",
+        "href": "/quran-courses/learn-quran-tafseer-online"
+      },
+      {
+        "label": "Hifz Quran",
+        "href": "/quran-courses/hifz-quran-online-for-kids-adults-quran-memorization-course"
+      },
+      {
+        "label": "Arabic Language",
+        "href": "/arabic-language-course"
+      },
+      {
+        "label": "Basic Islamic Education",
+        "href": "/quran-courses/basic-islamic-education-for-kids-daily-duas"
+      }
+    ]
+  },
+  {
+    "key": "footer-more",
+    "name": "Footer More",
+    "location": "footer",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About us",
+        "href": "/about-us"
+      },
+      {
+        "label": "Islamic Blogs",
+        "href": "/blog"
+      },
+      {
+        "label": "Academic Tuition",
+        "href": "/academic-tuition"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      },
+      {
+        "label": "Contact us",
+        "href": "/contact-us"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "wpId": 6,
+    "name": "blog",
+    "slug": "blog",
+    "description": "",
+    "parentWpId": null,
+    "count": 3,
+    "path": "/category/blog"
+  },
+  {
+    "wpId": 1,
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "description": "",
+    "parentWpId": null,
+    "count": 0,
+    "path": "/category/uncategorized"
+  }
+]

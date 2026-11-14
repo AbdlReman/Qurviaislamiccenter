@@ -1,0 +1,169 @@
+[
+  {
+    "key": "site",
+    "siteName": "Qurvia Islamic Center",
+    "title": "Qurvia Islamic Center - Online Quran Classes",
+    "tagline": "Journey of Faith & Knowledge",
+    "url": "https://ilmworldacademy.com",
+    "logo": {
+      "url": "/images/logo.png",
+      "width": 512,
+      "height": 512,
+      "alt": "Qurvia Islamic Center"
+    },
+    "headerImages": [],
+    "footerLogo": {
+      "url": "/images/logo.png",
+      "width": 512,
+      "height": 512,
+      "alt": "Qurvia Islamic Center"
+    },
+    "siteIcon": {
+      "url": "/images/logo.png",
+      "width": 512,
+      "height": 512,
+      "alt": "Qurvia Islamic Center"
+    },
+    "announcementBar": "Claim Your Free Trial Classes Today! Available on all plans except Tafseer and Arabic courses. No credit card required and zero hidden conditions.",
+    "headerCta": {
+      "text": "GET CLASS TRIAL",
+      "href": "/contact-us"
+    },
+    "contact": {
+      "phones": [
+        "+92 316 5677624",
+        "+92 370 9177700"
+      ],
+      "emails": [
+        "support@ilmworldacademy.com"
+      ],
+      "raw": [
+        {
+          "text": "+92 316 5677624",
+          "href": "tel:+923165677624"
+        },
+        {
+          "text": "+92 370 9177700",
+          "href": "tel:+923709177700"
+        },
+        {
+          "text": "support@ilmworldacademy.com",
+          "href": "mailto:support@ilmworldacademy.com"
+        }
+      ],
+      "officeHours": [
+        {
+          "text": "Office Hours: Mon - Thur: 8AM - 11PM Sat - Sun: 10AM - 11PM Friday: 3PM - 11PM"
+        }
+      ]
+    },
+    "social": [
+      {
+        "network": "Facebook",
+        "url": "https://www.facebook.com/share/18XxwFXium/?mibextid=wwXIfr"
+      },
+      {
+        "network": "Instagram",
+        "url": "https://www.instagram.com/ilmworld_academy"
+      },
+      {
+        "network": "X-twitter",
+        "url": "https://x.com/ilmworldacademy"
+      },
+      {
+        "network": "Tiktok",
+        "url": "https://www.tiktok.com/@ilmworldacademy"
+      },
+      {
+        "network": "Youtube",
+        "url": "http://Www.youtube.com/@ilmworldacademy"
+      }
+    ],
+    "chaty": [
+      {
+        "position": "right",
+        "ctaText": "WhatsApp us",
+        "color": "#A886CD",
+        "channels": [
+          {
+            "channel": "Whatsapp",
+            "value": "923709177700",
+            "url": "https://web.whatsapp.com/send?phone=923709177700",
+            "title": "WhatsApp",
+            "preSetMessage": null
+          }
+        ]
+      }
+    ],
+    "freeTrialPopup": {
+      "heading": "Book Your Free Trial Class",
+      "text": "Experience a free one-to-one Quran lesson with a certified tutor. 🔒 Safe & secure. No payment required.",
+      "form": {
+        "widget": "form",
+        "formName": "Free Trial Popup",
+        "fields": [
+          {
+            "name": "form_fields[name]",
+            "type": "text",
+            "label": "",
+            "placeholder": "Full Name",
+            "required": true
+          },
+          {
+            "name": "form_fields[field_ec3694d]",
+            "type": "text",
+            "label": "",
+            "placeholder": "Phone Number",
+            "required": true
+          },
+          {
+            "name": "form_fields[email]",
+            "type": "email",
+            "label": "",
+            "placeholder": "Email",
+            "required": true
+          },
+          {
+            "name": "form_fields[field_1e2d594]",
+            "type": "select",
+            "label": "Select the course",
+            "placeholder": null,
+            "required": true,
+            "options": [
+              "Noorani Qaida Course",
+              "Quran Tajweed Course",
+              "Quran Tafseer Course",
+              "Quran Hifz Course",
+              "Islamic Edu & Dua Course",
+              "Arabic Language Course",
+              "Academic Tuition",
+              "Other"
+            ]
+          },
+          {
+            "name": "form_fields[field_cc5c6b5]",
+            "type": "select",
+            "label": "How did you hear about us?",
+            "placeholder": null,
+            "required": true,
+            "options": [
+              "Google",
+              "Facebook",
+              "Instagram",
+              "Friend/Family",
+              "Other"
+            ]
+          }
+        ],
+        "submitText": "Get Trial"
+      }
+    },
+    "footer": {
+      "copyright": "© 2026 Qurvia Islamic Center. All Rights Reserved.",
+      "credit": "Website design & developed by devtyx (http://devtyx.com)"
+    },
+    "homepageSlug": "home",
+    "postsPageSlug": "blog",
+    "dateExported": "2026-11-12"
+  }
+]
