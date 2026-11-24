@@ -102,7 +102,7 @@ async function Hero({ section }: { section: Section }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgb(74_107_85/0.35),transparent_55%),linear-gradient(160deg,#1b3a2a,#121a16)]" />
       )}
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1200px] flex-col justify-end px-4 pb-16 pt-28 lg:px-6 lg:pb-24">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1200px] flex-col justify-end px-4 pb-16 pt-36 lg:px-6 lg:pb-24">
         <p className="ilm-fade-up font-[family-name:var(--font-display)] text-4xl leading-none tracking-tight text-white md:text-6xl lg:text-7xl">
           {settings.siteName}
         </p>
@@ -147,7 +147,7 @@ function PageHeader({ section }: { section: Section }) {
       ) : (
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#1b3a2a,#121a16)]" />
       )}
-      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 py-14 lg:px-6">
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 pt-10 pb-14 lg:px-6">
         {crumbs.length ? (
           <p className="mb-3 text-sm text-white/60">
             {crumbs.map((crumb, index) => (
