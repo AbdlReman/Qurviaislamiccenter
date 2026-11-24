@@ -48,19 +48,18 @@ export function Footer({ settings, menus }: { settings: SiteSettings; menus: Men
   const logo = settings.footerLogo || settings.logo;
 
   return (
-    <footer className="mt-auto text-white">
-      <div className="bg-gradient-to-r from-[#0b4324] to-[#649239]">
-        <div className="mx-auto grid max-w-[1140px] gap-8 px-4 py-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-2xl bg-[#f5f1e3] px-5 py-6 text-center text-[#0b4324]">
-            <SmartLink href="/" className="inline-block">
-              {logo?.url ? (
-                <CloudImage image={logo} alt={settings.siteName} className="mx-auto h-28 w-28 object-contain" />
-              ) : (
-                <span className="font-[family-name:var(--font-patua)] text-2xl">{settings.siteName}</span>
-              )}
-            </SmartLink>
-            <p className="mt-3 text-sm leading-6">{settings.tagline}</p>
-            <ul className="mt-4 flex flex-wrap items-center justify-center gap-2">
+    <footer className="mt-auto border-t border-sand bg-pine text-white">
+      <div className="mx-auto grid max-w-[1200px] gap-10 px-4 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-6">
+        <div>
+          <SmartLink href="/" className="inline-flex items-center gap-3">
+            {logo?.url ? (
+              <CloudImage image={logo} alt={settings.siteName} className="h-14 w-14 object-contain brightness-0 invert" />
+            ) : null}
+            <span className="font-[family-name:var(--font-display)] text-2xl tracking-tight">{settings.siteName}</span>
+          </SmartLink>
+          <p className="mt-4 max-w-xs text-sm leading-7 text-white/70">{settings.tagline}</p>
+          {settings.social.length ? (
+            <ul className="mt-6 flex flex-wrap items-center gap-2">
               {settings.social.map((item) => (
                 <li key={item.url}>
                   <a
@@ -68,54 +67,52 @@ export function Footer({ settings, menus }: { settings: SiteSettings; menus: Men
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={item.network}
-                    className="flex size-9 items-center justify-center rounded-full bg-[#0b4324] text-[#e0c141]"
+                    className="flex size-9 items-center justify-center rounded-sm border border-white/15 text-white/80 transition hover:border-white/40 hover:text-white"
                   >
                     <SocialIcon network={item.network} />
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
-          <FooterMenu title="Our Courses" menu={courses} />
-          <FooterMenu title="Explore" menu={more} />
-          <div>
-            <h2 className="font-[family-name:var(--font-patua)] text-xl text-[#e0c141]">Contact</h2>
-            <ul className="mt-4 space-y-2 text-sm leading-6">
-              {settings.contact.phones.map((phone) => (
-                <li key={phone}>
-                  <a href={telHref(phone)} className="hover:text-[#e0c141]">
-                    {phone}
-                  </a>
-                </li>
-              ))}
-              {settings.contact.emails.map((email) => (
-                <li key={email}>
-                  <a href={`mailto:${email}`} className="hover:text-[#e0c141]">
-                    {email}
-                  </a>
-                </li>
-              ))}
-              {(settings.contact.officeHours ?? []).map((hours) => (
-                <li key={hours.text} className="text-white/85">
-                  {hours.text}
-                </li>
-              ))}
-            </ul>
-          </div>
+          ) : null}
+        </div>
+        <FooterMenu title="Courses" menu={courses} />
+        <FooterMenu title="Explore" menu={more} />
+        <div>
+          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight">Contact</h2>
+          <ul className="mt-4 space-y-2 text-sm leading-7 text-white/75">
+            {settings.contact.phones.map((phone) => (
+              <li key={phone}>
+                <a href={telHref(phone)} className="transition hover:text-white">
+                  {phone}
+                </a>
+              </li>
+            ))}
+            {settings.contact.emails.map((email) => (
+              <li key={email}>
+                <a href={`mailto:${email}`} className="transition hover:text-white">
+                  {email}
+                </a>
+              </li>
+            ))}
+            {(settings.contact.officeHours ?? []).map((hours) => (
+              <li key={hours.text}>{hours.text}</li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="bg-[#072e18] px-4 py-4 text-center text-sm text-white/80">
+      <div className="border-t border-white/10 px-4 py-5 text-center text-sm text-white/55">
         <p>{settings.footer.copyright}</p>
         <p className="mt-1">
           {credit.href ? (
-            <a href={credit.href} className="hover:text-[#e0c141]" target="_blank" rel="noopener noreferrer">
+            <a href={credit.href} className="transition hover:text-white" target="_blank" rel="noopener noreferrer">
               {credit.text}
             </a>
           ) : (
             credit.text
           )}
           <span className="mx-2">·</span>
-          <SmartLink href="/pricing" className="hover:text-[#e0c141]">
+          <SmartLink href="/pricing" className="transition hover:text-white">
             Pricing
           </SmartLink>
         </p>
@@ -128,11 +125,11 @@ function FooterMenu({ title, menu }: { title: string; menu?: Menu }) {
   if (!menu) return <div />;
   return (
     <div>
-      <h2 className="font-[family-name:var(--font-patua)] text-xl text-[#e0c141]">{title}</h2>
-      <ul className="mt-4 space-y-2 text-sm">
+      <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight">{title}</h2>
+      <ul className="mt-4 space-y-2 text-sm text-white/75">
         {menu.items.map((item) => (
           <li key={item.label}>
-            <SmartLink href={item.href} className="hover:text-[#e0c141]">
+            <SmartLink href={item.href} className="transition hover:text-white">
               {item.label}
             </SmartLink>
           </li>

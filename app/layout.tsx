@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Patua_One, Source_Sans_3, Noto_Naskh_Arabic } from "next/font/google";
+import { Cormorant_Garamond, Outfit, Noto_Naskh_Arabic } from "next/font/google";
 import { getSettings } from "@/lib/content";
 import { siteUrl } from "@/lib/paths";
 import "./globals.css";
 
-const source = Source_Sans_3({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-source",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const patua = Patua_One({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-patua",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -39,8 +39,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${source.variable} ${patua.variable} ${naskh.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-[#1c1c1c]">{children}</body>
+    <html lang="en" className={`${outfit.variable} ${display.variable} ${naskh.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-mist text-ink">{children}</body>
     </html>
   );
 }

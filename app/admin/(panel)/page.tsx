@@ -24,7 +24,7 @@ async function Overview() {
         {cards.map((card) => (
           <Link key={card.label} href={card.href} className="rounded-xl bg-white p-4 shadow-sm">
             <p className="text-sm text-[#5e5a4e]">{card.label}</p>
-            <p className="mt-2 font-[family-name:var(--font-patua)] text-4xl text-[#0b4324]">{card.value}</p>
+            <p className="mt-2 font-[family-name:var(--font-display)] text-4xl text-[#0b4324]">{card.value}</p>
           </Link>
         ))}
       </div>

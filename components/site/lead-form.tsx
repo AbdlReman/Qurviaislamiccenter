@@ -36,7 +36,7 @@ export function LeadForm({
 
   if (done) {
     return (
-      <p className="rounded-xl bg-[#f5f1e3] px-4 py-5 text-[#0b4324]" role="status">
+      <p className="border border-sand bg-mist px-4 py-5 text-ink" role="status">
         Your trial request is with the academy. A coordinator will contact you shortly to arrange the class. No payment is taken at this step.
       </p>
     );
@@ -76,7 +76,7 @@ export function LeadForm({
         const options = (field.options || []).filter(Boolean);
         return (
           <div key={id} className="grid gap-1.5">
-            <Label htmlFor={id} className={field.label ? "text-[#0b4324]" : "sr-only"}>
+            <Label htmlFor={id} className={field.label ? "text-ink" : "sr-only"}>
               {label}
             </Label>
             {field.type === "textarea" ? (
@@ -116,7 +116,7 @@ export function LeadForm({
           {error}
         </p>
       ) : null}
-      <Button type="submit" disabled={pending} className="h-11 bg-[#0b4324] text-white hover:bg-[#14633a]">
+      <Button type="submit" disabled={pending} className="h-11 rounded-sm bg-pine text-white hover:bg-ink">
         {pending ? "Sending…" : submitText || "Get Trial"}
       </Button>
     </form>

@@ -15,10 +15,10 @@ export function LoginForm() {
   return (
     <main className="grid min-h-screen lg:grid-cols-2">
       <section className="hidden bg-[#0b4324] p-12 text-white lg:flex lg:flex-col lg:justify-between">
-        <p className="font-[family-name:var(--font-patua)] text-3xl">Qurvia Islamic Center</p>
+        <p className="font-[family-name:var(--font-display)] text-3xl">Qurvia Islamic Center</p>
         <div>
           <p className="text-sm tracking-[0.16em] text-[#e3d879] uppercase">Certified teachers</p>
-          <h1 className="mt-3 max-w-md font-[family-name:var(--font-patua)] text-5xl leading-tight">The studio for pages, courses, and trial requests.</h1>
+          <h1 className="mt-3 max-w-md font-[family-name:var(--font-display)] text-5xl leading-tight">The studio for pages, courses, and trial requests.</h1>
         </div>
         <p className="text-sm text-white/70">Male & female Quran teachers · live one-to-one classes</p>
       </section>
@@ -35,7 +35,7 @@ export function LoginForm() {
             });
           }}
         >
-          <h2 className="font-[family-name:var(--font-patua)] text-3xl text-[#0b4324]">Sign in</h2>
+          <h2 className="font-[family-name:var(--font-display)] text-3xl text-[#0b4324]">Sign in</h2>
           <input type="hidden" name="next" value={params.get("next") || "/admin"} />
           <div className="grid gap-1.5">
             <Label htmlFor="email">Email</Label>

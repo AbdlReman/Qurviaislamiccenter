@@ -59,11 +59,17 @@ export default async function Page({ params }: Props) {
       const settings = await getSettings();
       return (
         <>
-          <section className="bg-[#0b4324] py-16 text-center text-white">
+          <section className="bg-pine py-20 text-center text-white">
             <div className="mx-auto max-w-3xl px-4">
-              <p className="text-sm tracking-[0.16em] text-[#e3d879] uppercase">Qurvia Islamic Center</p>
-              <h1 className="mt-3 font-[family-name:var(--font-patua)] text-4xl md:text-5xl">Pricing</h1>
-              <p className="mt-4 text-lg text-white/85">One-to-one Quran classes, priced by course and weekly sessions.</p>
+              <p className="font-[family-name:var(--font-display)] text-3xl tracking-tight md:text-4xl">
+                Qurvia Islamic Center
+              </p>
+              <h1 className="mt-4 font-[family-name:var(--font-display)] text-2xl tracking-tight text-white/90 md:text-3xl">
+                Pricing
+              </h1>
+              <p className="mt-4 text-base text-white/70">
+                One-to-one Quran classes, priced by course and weekly sessions.
+              </p>
             </div>
           </section>
           <PricingSection plans={settings.pricingPlans} hint={doc.pricingHint} />

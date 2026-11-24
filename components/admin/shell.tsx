@@ -22,7 +22,7 @@ export function AdminShell({ email, children }: { email: string; children: React
     <div className="min-h-screen bg-[#f6f3ea] text-[#1c1c1c] md:grid md:grid-cols-[230px_1fr]">
       <aside className="bg-[#0b4324] text-white md:min-h-screen">
         <div className="px-4 py-5">
-          <p className="font-[family-name:var(--font-patua)] text-xl">Qurvia</p>
+          <p className="font-[family-name:var(--font-display)] text-xl">Qurvia</p>
           <p className="text-xs tracking-[0.14em] text-[#e3d879] uppercase">Studio</p>
         </div>
         <nav className="flex gap-1 overflow-x-auto px-2 pb-3 md:flex-col md:overflow-visible">

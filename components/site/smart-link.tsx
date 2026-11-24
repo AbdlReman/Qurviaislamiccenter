@@ -33,10 +33,10 @@ export function SmartLink({
 }
 
 export const btnGreen =
-  "inline-flex min-h-12 items-center justify-center rounded-md bg-gradient-to-r from-[#0b4324] to-[#639139] px-7 py-3 text-center font-[family-name:var(--font-patua)] text-base tracking-wide text-white shadow-sm transition hover:from-[#ba9d4c] hover:to-[#ba9d4c]";
+  "inline-flex min-h-12 items-center justify-center rounded-sm bg-pine px-8 py-3 text-center text-sm font-medium tracking-[0.04em] text-white transition duration-300 hover:bg-ink";
 
 export const btnGold =
-  "inline-flex min-h-12 items-center justify-center rounded-md bg-gradient-to-r from-[#9f772e] to-[#e3d879] px-7 py-3 text-center font-[family-name:var(--font-patua)] text-base tracking-wide text-white shadow-sm transition hover:from-[#0b4324] hover:to-[#639139]";
+  "inline-flex min-h-12 items-center justify-center rounded-sm border border-pine/25 bg-transparent px-8 py-3 text-center text-sm font-medium tracking-[0.04em] text-pine transition duration-300 hover:border-pine hover:bg-pine hover:text-white";
 
 export const btnWhite =
-  "inline-flex min-h-10 items-center justify-center rounded-md bg-white px-4 py-2 text-center font-[family-name:var(--font-patua)] text-sm tracking-[0.08em] text-[#0b4324] transition hover:bg-[#dab750]";
+  "inline-flex min-h-10 items-center justify-center rounded-sm bg-white px-5 py-2.5 text-center text-sm font-medium tracking-[0.04em] text-pine transition duration-300 hover:bg-mist";

@@ -15,27 +15,27 @@ export function TrialPopup({ settings }: { settings: SiteSettings }) {
     if (!popup?.form?.fields?.length) return;
     if (pathname.startsWith("/admin")) return;
     if (window.sessionStorage.getItem("ilm-trial-dismissed") === "1") return;
-    const timer = window.setTimeout(() => setOpen(true), 1200);
+    const timer = window.setTimeout(() => setOpen(true), 1800);
     return () => window.clearTimeout(timer);
   }, [pathname, popup]);
 
   if (!open || !popup?.form) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-end justify-center bg-black/50 p-4 sm:items-center" role="presentation">
+    <div className="fixed inset-0 z-[70] flex items-end justify-center bg-ink/45 p-4 sm:items-center" role="presentation">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="trial-popup-title"
-        className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl"
+        className="max-h-[90vh] w-full max-w-md overflow-y-auto border border-sand bg-white p-6 shadow-[0_24px_80px_rgb(18_26_22/0.2)]"
       >
-        <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="mb-5 flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.16em] text-[#a47f34]">Free trial</p>
-            <h2 id="trial-popup-title" className="font-[family-name:var(--font-patua)] text-2xl text-[#0b4324]">
+            <p className="text-xs tracking-[0.16em] text-moss uppercase">Free trial</p>
+            <h2 id="trial-popup-title" className="mt-1 font-[family-name:var(--font-display)] text-2xl tracking-tight text-ink">
               {popup.heading}
             </h2>
-            {popup.text ? <p className="mt-2 text-sm leading-6 text-[#4d4a42]">{popup.text}</p> : null}
+            {popup.text ? <p className="mt-2 text-sm leading-6 text-ink/65">{popup.text}</p> : null}
           </div>
           <Button
             type="button"
