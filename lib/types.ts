@@ -225,6 +225,7 @@ export type Lead = {
   heardFrom?: string;
   source: string;
   pagePath?: string;
+  details?: Record<string, string>;
   status: "new" | "read";
   createdAt: string;
 };

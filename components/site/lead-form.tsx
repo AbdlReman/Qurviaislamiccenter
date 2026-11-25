@@ -63,9 +63,10 @@ export function LeadForm({
       <input type="hidden" name="source" value={source} />
       <input type="hidden" name="pagePath" value={pagePath || ""} />
       <input
-        name="company_website"
+        name="website_url_hp"
         tabIndex={-1}
         autoComplete="off"
+        defaultValue=""
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
         aria-hidden
       />
