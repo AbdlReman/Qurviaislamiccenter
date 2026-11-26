@@ -86,8 +86,15 @@ export async function listPublicPaths(): Promise<{ path: string; updatedAt?: str
     db.collection("pages").find({ status: "publish" }, { projection: { path: 1, updatedAt: 1 } }).toArray(),
     db.collection("posts").find({ status: "publish" }, { projection: { path: 1, updatedAt: 1 } }).toArray(),
   ]);
-  return [...pages, ...posts].map((doc) => ({
-    path: String(doc.path),
-    updatedAt: doc.updatedAt ? String(doc.updatedAt) : undefined,
-  }));
+  return [...pages, ...posts].map((doc) => {
+    const raw = doc.updatedAt;
+    let updatedAt: string | undefined;
+    if (raw instanceof Date && !Number.isNaN(raw.getTime())) {
+      updatedAt = raw.toISOString();
+    } else if (typeof raw === "string" || typeof raw === "number") {
+      const parsed = new Date(raw);
+      if (!Number.isNaN(parsed.getTime())) updatedAt = parsed.toISOString();
+    }
+    return { path: String(doc.path), updatedAt };
+  });
 }
