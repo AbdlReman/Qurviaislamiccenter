@@ -1,11 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { submitLead } from "@/app/actions/leads";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import type { FormField } from "@/lib/types";
 
 function fieldKey(field: FormField): string {
@@ -19,6 +14,9 @@ function fieldKey(field: FormField): string {
   return field.name;
 }
 
+const fieldClass =
+  "h-10 w-full rounded-lg border border-input bg-white px-2.5 text-sm text-ink outline-none transition focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+
 export function LeadForm({
   fields,
   submitText,
@@ -30,7 +28,7 @@ export function LeadForm({
   source: string;
   pagePath?: string;
 }) {
-  const [pending, startTransition] = useTransition();
+  const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
 
@@ -44,32 +42,53 @@ export function LeadForm({
 
   return (
     <form
-      className="grid gap-4"
+      className="relative grid gap-4"
       method="post"
-      onSubmit={(event) => {
+      action="/api/leads"
+      noValidate={false}
+      onSubmit={async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        const form = event.currentTarget;
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
         setError("");
-        startTransition(async () => {
-          const result = await submitLead(data);
-          if (!result.ok) {
-            setError(result.error);
+        setPending(true);
+        try {
+          const response = await fetch("/api/leads", {
+            method: "POST",
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+
+          let result: { ok?: boolean; error?: string } | null = null;
+          const raw = await response.text();
+          try {
+            result = raw ? (JSON.parse(raw) as { ok?: boolean; error?: string }) : null;
+          } catch {
+            result = null;
+          }
+
+          if (!response.ok || !result?.ok) {
+            setError(result?.error || "Could not send. Please try again.");
             return;
           }
           setDone(true);
-        });
+        } catch {
+          setError("Network error. Please check your connection and try again.");
+        } finally {
+          setPending(false);
+        }
       }}
     >
       <input type="hidden" name="source" value={source} />
       <input type="hidden" name="pagePath" value={pagePath || ""} />
-      <input
-        name="website_url_hp"
-        tabIndex={-1}
-        autoComplete="off"
-        defaultValue=""
-        className="absolute -left-[9999px] h-0 w-0 opacity-0"
-        aria-hidden
-      />
+      <div aria-hidden className="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0">
+        <label>
+          Leave blank
+          <input name="website_url_hp" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       {fields.map((field, index) => {
         const key = fieldKey(field);
         const id = `${source}-${key}-${index}`;
@@ -77,18 +96,25 @@ export function LeadForm({
         const options = (field.options || []).filter(Boolean);
         return (
           <div key={id} className="grid gap-1.5">
-            <Label htmlFor={id} className={field.label ? "text-ink" : "sr-only"}>
+            <label htmlFor={id} className={field.label ? "text-sm font-medium text-ink" : "sr-only"}>
               {label}
-            </Label>
+            </label>
             {field.type === "textarea" ? (
-              <Textarea id={id} name={key} required={field.required} placeholder={field.placeholder || ""} rows={4} />
+              <textarea
+                id={id}
+                name={key}
+                required={field.required}
+                placeholder={field.placeholder || ""}
+                rows={4}
+                className={`${fieldClass} h-auto py-2`}
+              />
             ) : field.type === "select" ? (
               <select
                 id={id}
                 name={key}
                 required={field.required}
                 defaultValue=""
-                className="h-10 w-full rounded-lg border border-input bg-white px-2.5 text-sm"
+                className={fieldClass}
               >
                 <option value="" disabled>
                   {field.label || "Select"}
@@ -100,13 +126,14 @@ export function LeadForm({
                 ))}
               </select>
             ) : (
-              <Input
+              <input
                 id={id}
                 name={key}
-                type={field.type === "email" ? "email" : "text"}
+                type={field.type === "email" ? "email" : key === "phone" ? "tel" : "text"}
                 required={field.required}
                 placeholder={field.placeholder || ""}
                 autoComplete={key === "email" ? "email" : key === "name" ? "name" : key === "phone" ? "tel" : "on"}
+                className={fieldClass}
               />
             )}
           </div>
@@ -117,9 +144,13 @@ export function LeadForm({
           {error}
         </p>
       ) : null}
-      <Button type="submit" disabled={pending} className="h-11 rounded-sm bg-pine text-white hover:bg-ink">
+      <button
+        type="submit"
+        disabled={pending}
+        className="inline-flex h-11 items-center justify-center rounded-sm bg-pine px-4 text-sm font-medium text-white transition hover:bg-ink disabled:pointer-events-none disabled:opacity-50"
+      >
         {pending ? "Sending…" : submitText || "Get Trial"}
-      </Button>
+      </button>
     </form>
   );
 }
