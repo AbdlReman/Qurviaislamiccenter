@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArticleView, HtmlFallback, PricingSection, SectionView } from "@/components/sections/page-view";
+import { ArticleView, HomeStatsSection, HtmlFallback, PricingSection, SectionView } from "@/components/sections/page-view";
 import { getContentByPath, getSettings, listPublicPaths } from "@/lib/content";
 import { pathFromSlug } from "@/lib/paths";
 
@@ -79,11 +79,13 @@ export default async function Page({ params }: Props) {
     if (doc.kind === "post") return <ArticleView doc={doc} />;
     return <HtmlFallback html={doc.contentHtml} title={doc.title} />;
   }
+  const hasStats = doc.sections.some((section) => section.type === "stats");
   return (
     <>
       {doc.sections.map((section, index) => (
         <SectionView key={section.id || `${section.type}-${index}`} section={section} pagePath={doc.path} />
       ))}
+      {doc.path === "/" && !hasStats ? <HomeStatsSection /> : null}
     </>
   );
 }

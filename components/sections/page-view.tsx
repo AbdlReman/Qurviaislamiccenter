@@ -316,7 +316,45 @@ function Cta({ section }: { section: Section }) {
   );
 }
 
+const HOME_STATS = {
+  heading: "The Numbers Say It All",
+  intro:
+    "Thousands of students choose our online Quran academy for flexible class schedules, experienced male and female Quran teachers, personalized one-on-one Quran classes, and structured courses designed for both children and adults.",
+  items: [
+    { value: "4.9", suffix: "+", label: "139★ Google Verified Reviews" },
+    { value: "6", suffix: "+", label: "Years of Experience" },
+    { value: "200", suffix: "+", label: "Qualified Tutors" },
+    { value: "24/7", suffix: "", label: "All Time Zones" },
+  ],
+} as const;
+
+export function HomeStatsSection() {
+  return (
+    <section className="border-y border-sand bg-white/70 py-16 md:py-20">
+      <div className="mx-auto max-w-[1200px] px-4 lg:px-6">
+        <Heading>{HOME_STATS.heading}</Heading>
+        <p className="-mt-4 mb-10 max-w-2xl leading-7 text-ink/70">{HOME_STATS.intro}</p>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {HOME_STATS.items.map((item) => (
+            <article key={item.label} className="text-center sm:text-left">
+              <p className="font-[family-name:var(--font-display)] text-5xl tracking-tight text-pine">
+                {item.value}
+                {item.suffix}
+              </p>
+              <p className="mt-2 text-xs tracking-[0.14em] text-ink/55 uppercase">{item.label}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Stats({ section }: { section: Section }) {
+  // Home numbers stay static so CMS edits cannot break this block
+  if (section.heading === HOME_STATS.heading || !section.items?.length) {
+    return <HomeStatsSection />;
+  }
   return (
     <section className="border-y border-sand bg-white/70 py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-4 lg:px-6">
